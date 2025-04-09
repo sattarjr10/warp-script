@@ -49,17 +49,20 @@ scan_ipv6() {
 # Menu-ye entekhab
 while true; do
     echo "Lotfan yeki az gozine-ha ra entekhab konid:"
-    echo "1. Scane IPv4"
-    echo "2. Scane IPv6"
+    echo "1. Askan IPv4"
+    echo "2. Askan IPv6"
     echo "3. Khoroj"
     read -p "Entekhab shoma: " choice
 
+    # Check input va execute motabeq be gozarsh
     case $choice in
         1)
             scan_ipv4
+            break  # Exit the loop after processing
             ;;
         2)
             scan_ipv6
+            break  # Exit the loop after processing
             ;;
         3)
             echo "Khoroj az barname..."
