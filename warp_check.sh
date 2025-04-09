@@ -48,10 +48,6 @@ scan_ipv6() {
 
 # Menu-ye entekhab
 while true; do
-    # Clear the screen for better user experience
-    clear
-
-    # Show menu options
     echo "Lotfan yeki az gozine-ha ra entekhab konid:"
     echo "1. Askan IPv4"
     echo "2. Askan IPv6"
@@ -59,22 +55,16 @@ while true; do
     read -p "Entekhab shoma: " choice
 
     # Check input and execute based on selection
-    case $choice in
-        1)
-            scan_ipv4
-            break  # Exit the loop after processing
-            ;;
-        2)
-            scan_ipv6
-            break  # Exit the loop after processing
-            ;;
-        3)
-            echo "Khoroj az barname..."
-            exit 0
-            ;;
-        *)
-            echo "Lotfan yeki az gozine-ha-ye moshakhas vared konid."
-            sleep 2  # Wait for 2 seconds before clearing the screen and asking again
-            ;;
-    esac
+    if [[ "$choice" == "1" ]]; then
+        scan_ipv4
+        break  # Exit the loop after processing
+    elif [[ "$choice" == "2" ]]; then
+        scan_ipv6
+        break  # Exit the loop after processing
+    elif [[ "$choice" == "3" ]]; then
+        echo "Khoroj az barname..."
+        exit 0
+    else
+        echo "Lotfan yeki az gozine-ha-ye moshakhas vared konid."
+    fi
 done
